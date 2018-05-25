@@ -12,12 +12,6 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-
-//    static abstract void setMinPrice();
-//   static WebDriver driver() {
-//     return Driver.get();
-//   }
-
 }
 
 
