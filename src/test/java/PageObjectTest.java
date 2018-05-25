@@ -62,12 +62,12 @@ public class PageObjectTest extends BeforeAfter {
     @Test
     public void Test2() throws InterruptedException{
         HomePage homePage = new HomePage();
+        ResultPage resultPage = new ResultPage();
         homePage.navigateToHomePage();
         homePage.closeCoupon();
         homePage.changeGoToGlobalSite();
         homePage.changeCurrency();
         homePage.openCategoryPage();
-        ResultPage resultPage = new ResultPage();
         resultPage.setMinPrice();
         resultPage.setMaxPrice();
         resultPage.setSortFromLowToHI();
@@ -75,8 +75,25 @@ public class PageObjectTest extends BeforeAfter {
         resultPage.setSortFromHiToLow();
         Assert.assertEquals("90.", resultPage.getFirstItemPrice());
     }
+
+
     @Test
     public void Test3(){
+        HomePage homePage = new HomePage();
+        ResultPage resultPage = new ResultPage();
+        DetailsResultPage detailsResultPage = new DetailsResultPage();
+        homePage.navigateToHomePage();
+        homePage.closeCoupon();
+        homePage.setTextInSerchField();
+        resultPage.openFirstItem();
+        detailsResultPage.addItemToBascket();
+
+
+
+
+
+
+
 
     }
 
@@ -85,19 +102,13 @@ public class PageObjectTest extends BeforeAfter {
     @Test
     public  void Test4() {
         HomePage homePage = new HomePage();
-
         homePage.navigateToHomePage();
         homePage.closeCoupon();
         homePage.changeGoToGlobalSite();
         homePage.changeCurrency();
-        WebElement searchFild = Driver.get().findElement(By.xpath("//div[@class=\"search-key-box\"]/input"));
-        searchFild.click();
-        searchFild.sendKeys("iPhone 7 128");
-        searchFild.sendKeys(Keys.ENTER);
-        WebElement item = Driver.get().findElement(By.xpath("//a[@class=\"history-item product \"]"));
-        item.getText();
-        System.out.print(item.getText());
-        Assert.assertTrue(item.getText().contains("iPhone 7") && item.getText().contains("128"));
+        homePage.setTextInSerchField();
+        ResultPage resultPage = new ResultPage();
+        Assert.assertTrue(resultPage.getFirstItemPrice().contains("iPhone 7") && resultPage.getFirstItemPrice().contains("128"));
 
 
 
