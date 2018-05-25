@@ -21,8 +21,6 @@ public class BeforeAfter {
     public void tearDown() {
 //        Driver.get().close();
     }
-
-
 }
 
 
