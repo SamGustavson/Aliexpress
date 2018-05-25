@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import ui.BasePage;
 
 
 public class ResultPage extends BasePage {
@@ -25,18 +24,18 @@ public class ResultPage extends BasePage {
 
     @FindBy(how = How.ID, using = "filter-price-to" )
     public static WebElement maxField;
-
     @FindBy(how = How.XPATH, using = "//div[@id=\"sortBySelect\"]/div")
     public static WebElement sortElement;
-
     @FindBy(how = How.XPATH, using = "//a[@data-filter-type=\"price-desc\"]")
     public static WebElement low_toHigh;
-
     @FindBy(how = How.XPATH, using = "//a[@data-filter-type=\"price-asc\" and contains (text(), 'High')]")
     public static WebElement highToLow;
-
     @FindBy (how = How.XPATH, using = "//span[@class=\"price price-m\"]")
     public static WebElement firstItemPrice;
+    @FindBy (how = How.XPATH, using = "//a[@class=\"history-itemTextFirstLink product \"]")
+    public static WebElement itemTextFirstLink;
+    @FindBy (xpath = "//ul[@class=\"util-clearfix son-list util-clearfix\"]/li[1]//a")
+    public static WebElement openFirstLinkInResults;
 
 
     public void setMinPrice() {
@@ -69,8 +68,19 @@ public class ResultPage extends BasePage {
         String[] part = dol.split("(?<=\\D)(?=\\d)");
         System.out.println(part[1]);
         return part[1];
-
     }
 
+
+
+    public String getFirstItemText(){
+        itemTextFirstLink.getText();
+        System.out.print(itemTextFirstLink.getText());
+        String root = itemTextFirstLink.getText();
+        return root;
+    }
+
+    public void openFirstItem(){
+        openFirstLinkInResults.click();
+    }
 
 }
