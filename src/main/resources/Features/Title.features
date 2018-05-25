@@ -1,0 +1,25 @@
+Feature: Checking Title
+
+  I open Google search and write word
+  must check if that word present in title first link
+
+    Scenario: Search text "Automation" in title
+      Given I am type text in Google search field
+      And   I open first link on search result page
+      When  I check if that word present in first link title
+      Then  Our text is present
+
+
+
+
+
+
+
+
+
+
+
+    @RunWith(Cucumber.class)
+    @CucumberOptions(features = {"src/test/resources"}, format = {"pretty","html:target/reports/cucumber.html",
+    "json:target/cucumber.json", "usage:target/usage.jsonx", "junit:target/junit.xml"},
+    tags = {"@done"})
