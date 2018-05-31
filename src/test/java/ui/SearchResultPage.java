@@ -1,5 +1,4 @@
 package ui;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -7,48 +6,41 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 
-public class ResultPage extends BasePage {
+public class SearchResultPage extends BasePage {
     private static Actions actions = new Actions(driver);
-
-//    public static final By FILTER_MIN_PRICE_LOCATOR = By.id("filter-price-from");
-//    public static final By FILTER_MAX_PRICE_LOCATOR = By.id("filter-price-to");
-//    public static final By SORT_MENU_LOCATOR        = By.xpath("//div[@id=\"sortBySelect\"]/div");
-//    public static final By LOW_TO_HIGH_MENU_LOCATOR = By.xpath("//a[@data-filter-type=\"price-desc\"]");
-//    public static final By HIGH_TO_LOW_MENU_LOCATOR = By.xpath("//a[@data-filter-type=\"price-asc\" and contains (text(), 'High')]");
-//    public static final By FIRST_RESULT_PRICE_LOCATOR = By.xpath("//span[@class=\"price price-m\"]");
-
-
-
     @FindBy(id= "filter-price-from")
-    public WebElement minField ;
+    private WebElement minField ;
 
     @FindBy(how = How.ID, using = "filter-price-to" )
-    public static WebElement maxField;
+    private static WebElement maxField;
+
     @FindBy(how = How.XPATH, using = "//div[@id=\"sortBySelect\"]/div")
-    public static WebElement sortElement;
+    private static WebElement sortElement;
+
     @FindBy(how = How.XPATH, using = "//a[@data-filter-type=\"price-desc\"]")
-    public static WebElement low_toHigh;
+    private static WebElement low_toHigh;
+
     @FindBy(how = How.XPATH, using = "//a[@data-filter-type=\"price-asc\" and contains (text(), 'High')]")
-    public static WebElement highToLow;
+    private static WebElement highToLow;
+
     @FindBy (how = How.XPATH, using = "//span[@class=\"price price-m\"]")
-    public static WebElement firstItemPrice;
-    @FindBy (how = How.XPATH, using = "//a[@class=\"history-itemTextFirstLink product \"]")
-    public static WebElement itemTextFirstLink;
+    private static WebElement firstItemPrice;
+
+    @FindBy (how = How.XPATH, using = "//a[@class=\"history-item product \"]")
+    private static WebElement itemTextFirstLink;
+
     @FindBy (xpath = "//ul[@class=\"util-clearfix son-list util-clearfix\"]/li[1]//a")
-    public static WebElement openFirstLinkInResults;
+    private static WebElement openFirstLinkInResults;
 
-
-    public void setMinPrice() {
+    public void setMinPrice(String price_Min) {
         minField.click();
-        minField.sendKeys("50");
+        minField.sendKeys(price_Min);
         minField.sendKeys(Keys.TAB);
-
     }
 
-    public  void setMaxPrice() {
-        maxField.sendKeys("90");
+    public  void setMaxPrice(String price_Max) {
+        maxField.sendKeys(price_Max);
         maxField.sendKeys(Keys.ENTER);
-
     }
 
     public  void setSortFromLowToHI() {
@@ -58,9 +50,7 @@ public class ResultPage extends BasePage {
 
     public  void setSortFromHiToLow()  {
         sortElement.click();
-//        Thread.sleep(500);
         actions.moveToElement(highToLow).click().build().perform();
-
     }
 
     public  String getFirstItemPrice() {
@@ -70,17 +60,14 @@ public class ResultPage extends BasePage {
         return part[1];
     }
 
-
-
     public String getFirstItemText(){
         itemTextFirstLink.getText();
         System.out.print(itemTextFirstLink.getText());
-        String root = itemTextFirstLink.getText();
-        return root;
+        return itemTextFirstLink.getText();
     }
 
-    public void openFirstItem(){
+    public ItemDetailsPage openFirstItem(){
         openFirstLinkInResults.click();
+        return new ItemDetailsPage();
     }
-
 }
