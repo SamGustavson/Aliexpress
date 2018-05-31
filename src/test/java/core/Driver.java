@@ -1,22 +1,15 @@
 package core;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -34,29 +27,7 @@ public class Driver {
         return driver;
     }
 
-    public static boolean isElementPresent(By locator) {
-        get().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        List<WebElement> elements = get().findElements(locator);
-        get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        return elements.size() > 0 && elements.get(0).isDisplayed();
-    }
-    public static void waitForElementVisible(By locator, int timeoutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(get(), timeoutInSeconds);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-
-    }
-    public static void waitForElementClickable(By locator, int timeoutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(get(), timeoutInSeconds);
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
-
-    }
-    public static void waitForElementNotVisible(WebElement locator, int timeoutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(get(), timeoutInSeconds);
-        wait.until(ExpectedConditions.invisibilityOf(locator));
-
-    }
-
-    public static void set(WebDriver driverInput) {
+    private static void set(WebDriver driverInput) {
         driver = driverInput;
     }
 
@@ -107,7 +78,8 @@ public class Driver {
         Driver.set(driverInput);
     }
 
-    public void tearDown() {
+    public static void tearDown() {
         Driver.get().quit();
+        driver = null;
     }
 }
