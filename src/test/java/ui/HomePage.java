@@ -3,9 +3,7 @@ package ui;
 import core.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -44,9 +42,8 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//dl[@class=\"cl-item cl-item-shoes\"]//a")
     private WebElement bagsAndShoes;
     private static By POPUP_WINDOW = By.xpath("//div[@class='ui-window-content']/a");
-
     @FindBy(how = How.XPATH, using = "//div[@class=\"search-key-box\"]/input")
-    public static WebElement searchField;
+    private static WebElement searchField;
 
     public HomePage navigateToHomePage() {
         driver.get(System.getProperty("test.aliURL"));

@@ -8,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    private static final String frameName   = "alibaba-login-box";
-
     @FindBy(xpath = "//*[@id='fm-login-id']")
     private static WebElement loginFild;
 
@@ -30,6 +28,7 @@ public class LoginPage extends BasePage {
 
     private static final By SLIDER_MODULE = By.id("nc_1_n1z");
     private static final By LOGIN_BOX = By.id("alibaba-login-box");
+    private static final String frameName   = "alibaba-login-box";
 
     public  void setCredentials(String login, String password){
         driver.switchTo().frame(frameName);

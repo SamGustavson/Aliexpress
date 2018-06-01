@@ -7,7 +7,9 @@ import org.openqa.selenium.support.How;
 
 
 public class SearchResultPage extends BasePage {
+
     private static Actions actions = new Actions(driver);
+
     @FindBy(id= "filter-price-from")
     private WebElement minField ;
 
