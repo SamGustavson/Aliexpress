@@ -1,6 +1,6 @@
 package ui;
 
-import core.BeforeAfter;
+
 import core.Driver;
 import org.apache.log4j.Logger;
 
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class GoogleSearchPage extends BeforeAfter {
+public class GoogleSearchPage extends BasePage{
     public static String baseURL = "https://google.com";
     Logger log = Logger.getLogger(GoogleSearchPage.class);
 
@@ -42,8 +42,6 @@ public class GoogleSearchPage extends BeforeAfter {
         // driver.findElement(By.xpath("//input[@name='q']")).sendKeys("Automation");
         textField.sendKeys(Keys.ENTER);
         log.info("Enter:  " + System.getProperty("test.wordfinder"));
-
-
     }
 
     public void ButtonClick() {

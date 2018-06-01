@@ -1,5 +1,4 @@
 package ui;
-import core.BeforeAfter;
 import core.Driver;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -8,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class GoogleResultPage extends BeforeAfter {
+public class GoogleResultPage {
     public static final String URLs = "//div[@class='f kv _SWb']/cite";
     Logger log = Logger.getLogger(GoogleSearchPage.class);
 

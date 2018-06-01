@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class BasePage {
     protected static WebDriver driver ;
 
-    public BasePage() {
+    BasePage() {
         driver = Driver.get();
         PageFactory.initElements(driver, this);
     }

@@ -15,10 +15,6 @@ public class ShoppingCartPage extends BasePage{
     private By iTems = By.xpath("//tr[@class='item-product']//dd/a");
 
     public String getListItems() {
-//        BasePage.waitForElementVisible(items, 3);
-//        String text = items.getText();
-//        System.out.print(text);
-//        return text;
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         List<WebElement>elementList = driver.findElements(iTems);
         String text = null;
