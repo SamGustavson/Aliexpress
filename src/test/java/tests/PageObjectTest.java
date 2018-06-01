@@ -1,40 +1,15 @@
 package tests;
 import com.sun.org.glassfish.gmbal.Description;
-import core.Driver;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import ui.*;
+import pages.*;
 
 
 public class PageObjectTest extends BeforeAfter {
-//    @Test
-//    public void pageObjectTestGoogle1() {
-//        GoogleSearchPage page = new GoogleSearchPage();
-//        page.OpenPage();
-//        page.SearchByText();
-//        page.ButtonClick();
-//        GoogleResultPage page2 = new GoogleResultPage();
-//        Assert.assertTrue("Check if the header is set to <Automation>", page2.isTitlePresent());
-//    }
-//
-//    @Test
-//    public void PageObjectTestGoogle2() {
-//        GoogleSearchPage page = new GoogleSearchPage();
-//        GoogleResultPage page2 = new GoogleResultPage();
-//        page.OpenPage();
-//        page.SearchByText();
-//        page2.CatchPages(System.getProperty("test.URLtoSearch"), 5);
-//    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Test
     @Description("check Sign In process")
-    public void Test1() throws InterruptedException {
+    public void Test1()  {
         HomePage homePage = new HomePage();
         homePage.navigateToHomePage();
         homePage.closeCoupon();
@@ -46,7 +21,7 @@ public class PageObjectTest extends BeforeAfter {
 
     @Test
     @Description("check Search box")
-    public void Test2() throws InterruptedException {
+    public void Test2() {
         HomePage homePage = new HomePage();
         homePage.navigateToHomePage();
         homePage.closeCoupon();

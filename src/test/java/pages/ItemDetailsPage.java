@@ -1,4 +1,4 @@
-package ui;
+package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class ItemDetailsPage extends BasePage{
     @FindBy(id = "j-add-cart-btn")
     private static WebElement add_to_basket;
 
-    @FindBy(xpath = "//div[@class=\"ui-window-bd\"]//a")
+    @FindBy(xpath = "//div[@class=\"pages-window-bd\"]//a")
     private static WebElement go_to_basket;
 
     public ShoppingCartPage addItemToBasket()  {

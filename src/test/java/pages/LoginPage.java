@@ -1,4 +1,4 @@
-package ui;
+package pages;
 import core.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -45,6 +45,7 @@ public class LoginPage extends BasePage {
             driver.switchTo().parentFrame();
         }
     }
+
 
      public  boolean noCapture(){
          return BasePage.isElementPresent(LOGIN_BOX);

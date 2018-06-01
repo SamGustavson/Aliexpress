@@ -1,4 +1,4 @@
-package ui;
+package pages;
 
 import core.Driver;
 import org.openqa.selenium.By;
@@ -11,9 +11,9 @@ import org.openqa.selenium.support.How;
 public class HomePage extends BasePage {
 
     private Actions actions = new Actions(driver);
-    @FindBy(xpath = "//div[@class='ui-window-content']/a")
+    @FindBy(xpath = "//div[@class='pages-window-content']/a")
     private WebElement popUpWindow;
-    @FindBy(xpath = "//div[@class=\"ui-mask\"]")
+    @FindBy(xpath = "//div[@class=\"pages-mask\"]")
     private WebElement backgroundWeblelement;
     @FindBy(xpath = "//div[@class=\"ng-item ng-goto-globalsite\"]/a")
     private WebElement changeLanguage;
@@ -41,7 +41,7 @@ public class HomePage extends BasePage {
     private WebElement mensLuggage;
     @FindBy(xpath = "//dl[@class=\"cl-item cl-item-shoes\"]//a")
     private WebElement bagsAndShoes;
-    private static By POPUP_WINDOW = By.xpath("//div[@class='ui-window-content']/a");
+    private static By POPUP_WINDOW = By.xpath("//div[@class='pages-window-content']/a");
     @FindBy(how = How.XPATH, using = "//div[@class=\"search-key-box\"]/input")
     private static WebElement searchField;
 
